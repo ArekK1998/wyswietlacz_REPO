@@ -113,7 +113,7 @@ int main(void)
   HAL_TIM_Encoder_Start_IT(&htim2,TIM_CHANNEL_ALL);
   HAL_TIM_Base_Start(&htim16);
   lcd_Init();
-  int a=0;
+  int xkurwada=0;
 
   /* USER CODE END 2 */
 
@@ -124,17 +124,17 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if ((counter==10)&&(a==0))
+	  if ((counter==10)&&(xkurwada==0))
 	  {
 		  lcd_clear();
 		  lcd_cursor(0,0);
 		  lcd_send_string("To srodek jest");
-		  a=1;
+		  xkurwada=1;
 	  }
 
 	  else if(counter!=10)
 		  {
-		  a=0;
+		  xkurwada=0;
 		  }
   }
   /* USER CODE END 3 */
