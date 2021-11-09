@@ -29,9 +29,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 00000030  00000000  00000000  00020070  2**0
                   CONTENTS, READONLY
- 13 .debug_info   0000c3c6  00000000  00000000  000200a0  2**0
+ 13 .debug_info   0000c3c8  00000000  00000000  000200a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00001c0d  00000000  00000000  0002c466  2**0
+ 14 .debug_abbrev 00001c0d  00000000  00000000  0002c468  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_aranges 00000a30  00000000  00000000  0002e078  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -41,11 +41,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_line   0000c8c9  00000000  00000000  0004f902  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000c5703  00000000  00000000  0005c1cb  2**0
+ 19 .debug_str    000c5749  00000000  00000000  0005c1cb  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000053  00000000  00000000  001218ce  2**0
+ 20 .comment      00000053  00000000  00000000  00121914  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00002d84  00000000  00000000  00121924  2**2
+ 21 .debug_frame  00002d84  00000000  00000000  00121968  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -562,7 +562,7 @@ int main(void)
  80004fc:	f002 f9da 	bl	80028b4 <HAL_TIM_Base_Start>
   lcd_Init();
  8000500:	f7ff ff88 	bl	8000414 <lcd_Init>
-  int a=0;
+  int xkurwada=0;
  8000504:	2300      	movs	r3, #0
  8000506:	647b      	str	r3, [r7, #68]	; 0x44
   while (1)
@@ -570,7 +570,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if ((counter==10)&&(a==0))
+	  if ((counter==10)&&(xkurwada==0))
  8000508:	4b0e      	ldr	r3, [pc, #56]	; (8000544 <main+0x70>)
  800050a:	781b      	ldrb	r3, [r3, #0]
  800050c:	2b0a      	cmp	r3, #10
@@ -588,7 +588,7 @@ int main(void)
 		  lcd_send_string("To srodek jest");
  8000522:	4809      	ldr	r0, [pc, #36]	; (8000548 <main+0x74>)
  8000524:	f7ff ff98 	bl	8000458 <lcd_send_string>
-		  a=1;
+		  xkurwada=1;
  8000528:	2301      	movs	r3, #1
  800052a:	647b      	str	r3, [r7, #68]	; 0x44
  800052c:	e005      	b.n	800053a <main+0x66>
@@ -600,10 +600,10 @@ int main(void)
  8000532:	2b0a      	cmp	r3, #10
  8000534:	d0e8      	beq.n	8000508 <main+0x34>
 		  {
-		  a=0;
+		  xkurwada=0;
  8000536:	2300      	movs	r3, #0
  8000538:	647b      	str	r3, [r7, #68]	; 0x44
-	  if ((counter==10)&&(a==0))
+	  if ((counter==10)&&(xkurwada==0))
  800053a:	e7e5      	b.n	8000508 <main+0x34>
  800053c:	20000128 	.word	0x20000128
  8000540:	20000174 	.word	0x20000174
